@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>VatsimXML by A-Lawrence</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>VatsimXML</h1>
+          <h2>A simple laravel package for retrieving data from public VATSIM XML Feeds.</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/A-Lawrence/VatsimXML/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/A-Lawrence/VatsimXML/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/A-Lawrence/VatsimXML" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a name="vatsimxmlfeeds" class="anchor" href="#vatsimxmlfeeds"><span class="octicon octicon-link"></span></a>VatsimXMLFeeds</h1>
+
+<p>The Vatsim Xmlfeeds package is a useful laravel package for accessing data publically presented via VATSIMs XML feeds.</p>
+
+<h2>
+<a name="version" class="anchor" href="#version"><span class="octicon octicon-link"></span></a>Version</h2>
+
+<p>1.0</p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Use <a href="http://getcomposer.org">Composer</a> to install the VatsimXmlfeeds and dependencies.</p>
+
+<div class="highlight highlight-sh"><pre><span class="nv">$ </span>composer require vatsim/xmlfeeds 1.*
+</pre></div>
+
+<h3>
+<a name="laravel" class="anchor" href="#laravel"><span class="octicon octicon-link"></span></a>Laravel</h3>
+
+<h4>
+<a name="set-up" class="anchor" href="#set-up"><span class="octicon octicon-link"></span></a>Set up</h4>
+
+<p>Using VatsimXmlfeeds in Laravel is made easy through the use of Service Providers. Add the service provider to your <code>app/config/app.php</code> file:</p>
+
+<div class="highlight highlight-php"><pre><span class="s1">'providers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="c1">// ...</span>
+    <span class="s1">'Vatsim\Xmlfeeds\XmlfeedsServiceProvider'</span><span class="p">,</span>
+<span class="p">),</span>
+</pre></div>
+
+<p>Followed by the alias:</p>
+
+<div class="highlight highlight-php"><pre><span class="s1">'aliases'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="c1">// ...</span>
+    <span class="s1">'VatsimXmlfeeds'</span>       <span class="o">=&gt;</span> <span class="s1">'Vatsim\Xmlfeeds\Facades\Xmlfeeds'</span><span class="p">,</span>
+<span class="p">),</span>
+</pre></div>
+
+<h4>
+<a name="configuration-file" class="anchor" href="#configuration-file"><span class="octicon octicon-link"></span></a>Configuration file</h4>
+
+<p>You should not need to modify the default configuration file supplied by the package.</p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<h3>
+<a name="getting-data" class="anchor" href="#getting-data"><span class="octicon octicon-link"></span></a>Getting data</h3>
+
+<p>This lightweight package only has one main function: getData</p>
+
+<p>If you don't specify a URL to use, you will be given basic user details.</p>
+
+<div class="highlight highlight-php"><pre><span class="nx">VatsimXML</span><span class="o">::</span><span class="na">getData</span><span class="p">(</span><span class="mi">980234</span><span class="p">)</span>
+</pre></div>
+
+<p>Other possible data requests are as follows.</p>
+
+<div class="highlight highlight-php"><pre><span class="nx">VatsimXML</span><span class="o">::</span><span class="na">getData</span><span class="p">(</span><span class="mi">980234</span><span class="p">,</span> <span class="s2">"idstatusint"</span><span class="p">)</span> <span class="c1">// Receive basic data, but with numeric ratings rather than verbose.</span>
+<span class="nx">VatsimXML</span><span class="o">::</span><span class="na">getData</span><span class="p">(</span><span class="mi">980234</span><span class="p">,</span> <span class="s2">"idstatusprat"</span><span class="p">)</span> <span class="c1">// Receive the previous rating, for ADM, SUP or INS accounts.</span>
+<span class="nx">VatsimXML</span><span class="o">::</span><span class="na">getData</span><span class="p">(</span><span class="mi">980234</span><span class="p">,</span> <span class="s2">"idstatusrat"</span><span class="p">)</span> <span class="c1">// Get the number of hours controlled at each rating level.</span>
+</pre></div>
+        </section>
+
+        <footer>
+          VatsimXML is maintained by <a href="https://github.com/A-Lawrence">A-Lawrence</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
