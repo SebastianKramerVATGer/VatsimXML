@@ -12,6 +12,10 @@
         {
             "name": "Anthony Lawrence",
             "email": "freelancer@anthonylawrence.me.uk"
+        },
+        {
+            "name": "Sebastian Kramer",
+            "email": "sebastian@jskramer.de"
         }
     ],
     "support": {
@@ -19,8 +23,8 @@
         "wiki": "https://github.com/A-Lawrence/VatsimXML/wiki"
     },
     "require": {
-        "php": ">=5.5.9",
-        "illuminate/support": "5.*"
+        "php": ">=7.2",
+        "illuminate/support": "^6.0"
     },
     "autoload": {
         "psr-0": {
