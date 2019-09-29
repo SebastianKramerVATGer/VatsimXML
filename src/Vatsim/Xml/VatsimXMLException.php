@@ -1,4 +1,7 @@
-<?php namespace Vatsim\Xml;
+<?php
 
-class VatsimXMLException extends Exception {
+namespace Vatsim\Xml;
+
+class VatsimXMLException extends Exception
+{
 }

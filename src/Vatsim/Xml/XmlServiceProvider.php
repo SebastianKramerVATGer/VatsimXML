@@ -2,6 +2,7 @@
 
 namespace Vatsim\Xml;
 
+use Illuminate\Support\Str;
 use Illuminate\Support\ServiceProvider;
 
 class XmlServiceProvider extends ServiceProvider
@@ -35,7 +36,7 @@ class XmlServiceProvider extends ServiceProvider
         // Lumen users need to copy the config themselves
         // And it needs to pulled completely differently.
         // So more work required. Luckily barryvdh had the answer - so thanks.
-        if (str_contains($this->app->version(), 'Lumen')) {
+        if (Str::contains($this->app->version(), 'Lumen')) {
             $this->app->configure('vatsim-xml');
         } else {
             $this->publishes(
